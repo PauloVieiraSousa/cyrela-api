@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mysql.cyrela:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: cyrela123
+      MYSQL_USER: cyrela
+      MYSQL_PASSWORD: cyrela123
+      MYSQL_DATABASE: db_cyrela
+    volumes:
+      -  mysql.cyrela.monolito:/var/lib/mysql
+    networks:
+      - cyrela
+      
+networks:
+  cyrela:
+
+volumes:
+  mysql.cyrela.monolito:
