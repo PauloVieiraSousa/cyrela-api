@@ -60,16 +60,16 @@ Baseado no protótio essas são as premissas para cada operação realizada sobr
     - História
     Eu como cliente tenho a necessidade de agendar a assistencia para algum problema tecnico ou defeito que tenho em meu apartamento.
     Informações extras:
-        Pagina 1 - Abertura do Chamado
+        - Pagina 1 - Abertura do Chamado
             - Na abertura do chamado é necessário informar qual é o inicio da garantia para o cliente.
 			- Cada item tem um tempo determinado para a garantia.
 			- Cada subitem pode ter um tempo diferente.
 			- o ambiente a qual esta o item.
 			- E um texto (opcional) contendo uma breve descrição do problema.
 			- O cliente pode anexar um ou mais arquivo.
-		Pagina 2 - Data e horario disponíveis
+		- Pagina 2 - Data e horario disponíveis
 			- O cliente agenda a assitencia, nas datas e horarios disponíveis pela Cyrela
 			- O cliente confirma a data e horario agendado
-		Página 3 - Agendamento confirmado
+		- Página 3 - Agendamento confirmado
             - Dados de data e horario agendado
             - Dados do item agendado
