@@ -1,0 +1,4 @@
+INSERT INTO clientes (pjo_nome, pjo_empreendimentoid, pjo_unidadeid, pjo_blocoid, pjo_datagarantia) values ('Paulo Sousa', 1, 1, 1, '2020-01-01 01:01:01');
+INSERT INTO clientes (pjo_nome, pjo_empreendimentoid, pjo_unidadeid, pjo_blocoid, pjo_datagarantia) values ('Carlos Gusmao', 1, 2, 1, '2021-01-01 01:01:01');
+INSERT INTO clientes (pjo_nome, pjo_empreendimentoid, pjo_unidadeid, pjo_blocoid, pjo_datagarantia) values ('Maria Julia', 1, 3, 1, '2021-01-01 01:01:01');
+INSERT INTO clientes (pjo_nome, pjo_empreendimentoid, pjo_unidadeid, pjo_blocoid, pjo_datagarantia) values ('Carolina Ferraz', 1, 4, 1, '2021-01-01 01:01:01');
