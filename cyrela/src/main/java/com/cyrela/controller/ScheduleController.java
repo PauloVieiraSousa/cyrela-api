@@ -19,9 +19,7 @@ import lombok.AllArgsConstructor;
 public class ScheduleController {
 
 	@GetMapping(path = "/schedule", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SchedulerOutputDto> exampleSchedule() {
-		Schedule schedule = new Schedule();
-				schedule.setName("Exemplo");
-		return ResponseEntity.ok(SchedulerOutputDto.build(schedule));
+	public ResponseEntity<String> exampleSchedule() {
+		return ResponseEntity.ok("Funcionou");
 	}
 }

@@ -11,6 +11,7 @@ public class SchedulerOutputDto {
 
 	private String name;
 	
+	/*
 	SchedulerOutputDto(Schedule schedule){
 		this.name = schedule.getName();
 	}
@@ -19,5 +20,5 @@ public class SchedulerOutputDto {
 		return new SchedulerOutputDto(schedule);
 	}
 	
-	
+	*/
 }
