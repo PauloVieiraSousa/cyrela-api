@@ -7,6 +7,4 @@ import com.cyrela.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
-	
-
 }
