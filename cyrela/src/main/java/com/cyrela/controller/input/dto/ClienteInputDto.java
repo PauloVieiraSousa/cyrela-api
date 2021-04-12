@@ -1,5 +1,7 @@
 package com.cyrela.controller.input.dto;
 
+import java.time.Instant;
+
 import com.cyrela.controller.output.dto.ClienteOutputDto;
 import com.cyrela.model.Cliente;
 
@@ -16,5 +18,6 @@ public class ClienteInputDto {
 	private Long empreendimentoId;
 	private Long unidadeId;
 	private Long blocoId;
+	private Instant dataGarantia;
 	
 }

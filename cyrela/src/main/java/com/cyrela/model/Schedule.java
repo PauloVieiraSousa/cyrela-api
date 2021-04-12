@@ -11,12 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "agenda")
 public class Schedule {
 	
@@ -29,7 +35,7 @@ public class Schedule {
 	private String subject;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pjo_clienteid", nullable = false)
 	private Cliente cliente;
 	
@@ -40,7 +46,7 @@ public class Schedule {
 	@Column(name = "pjo_actualend")
 	private Instant dateFinal;
 	
-	public Schedule() {}
+	
 	
 	public Schedule(String subject, Instant dateInitial, Instant dateFinal, Cliente cliente) {
 		this.subject = subject;

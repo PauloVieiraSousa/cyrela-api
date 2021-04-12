@@ -1,5 +1,7 @@
 package com.cyrela.controller.output.dto;
 
+import java.time.Instant;
+
 import com.cyrela.model.Cliente;
 
 import lombok.AllArgsConstructor;
@@ -16,8 +18,9 @@ public class ClienteOutputDto {
 	private Long empreendimentoId;
 	private Long unidadeId;
 	private Long blocoId;
+	private Instant dataGarantia;
 	
 	public ClienteOutputDto (Cliente cliente){
-		this(cliente.getId(), cliente.getName(), cliente.getEmpreendimento().getId(),  cliente.getUnidades().getId(), cliente.getUnidades().getId());
+		this(cliente.getId(), cliente.getName(), cliente.getEmpreendimento().getId(),  cliente.getUnidades().getId(), cliente.getUnidades().getId(), cliente.getDateWarranty());
 	}
 }

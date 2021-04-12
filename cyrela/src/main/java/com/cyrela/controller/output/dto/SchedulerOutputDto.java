@@ -1,24 +1,28 @@
 package com.cyrela.controller.output.dto;
 
+import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.cyrela.model.Schedule;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SchedulerOutputDto {
 
-	private String name;
+	private Instant dateInitial;
 	
-	/*
-	SchedulerOutputDto(Schedule schedule){
-		this.name = schedule.getName();
+	private Instant dateFinal;
+	
+	public SchedulerOutputDto(Schedule schedule){
+		this(schedule.getDateInitial(), schedule.getDateFinal());
 	}
 	
-	public static SchedulerOutputDto build(Schedule schedule) {
-		return new SchedulerOutputDto(schedule);
-	}
-	
-	*/
 }

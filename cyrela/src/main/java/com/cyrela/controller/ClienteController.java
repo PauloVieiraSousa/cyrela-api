@@ -25,9 +25,15 @@ import com.cyrela.repository.BlocoRepository;
 import com.cyrela.repository.ClienteRepository;
 import com.cyrela.repository.EmpreendimentoRepository;
 import com.cyrela.repository.UnidadesRepository;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import com.cyrela.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 
+
+@Api(value = "Cliente")
 @AllArgsConstructor
 @RequestMapping("api")
 @RestController
@@ -39,19 +45,22 @@ public class ClienteController {
 	private BlocoRepository blocoRepository;
 	private UnidadesRepository unidadesRepository;
 	
+	@ApiOperation(value = "Obtem lista de clientes cadastrados")
 	@GetMapping(path = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Cliente>> getClientes() {
 		List<Cliente> clientes = clienteRepository.findAll();
+		
 		return ResponseEntity.ok(clientes);
 	}
 	
+	@ApiOperation(value = "Obtem os detalhes do cliente")
 	@GetMapping(path = "/clientes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ClienteOutputDto getClienteDetail(@PathVariable("id") Long id) {
 		Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
 		return new ClienteOutputDto(cliente);
 	}
 	
-	
+	@ApiOperation(value = "Adiciona novo cliente")
 	@PostMapping(path = "/clientes", produces =  MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ClienteOutputDto> addCliente(@RequestBody ClienteInputDto clienteDto, UriComponentsBuilder uriBuilder){
 		
@@ -59,7 +68,7 @@ public class ClienteController {
 		Bloco bloco = blocoRepository.getOne(clienteDto.getBlocoId());
 		Unidades unidades = unidadesRepository.getOne(clienteDto.getUnidadeId());
 
-		Cliente cliente = new Cliente(clienteDto.getName(), empreendimento, unidades, bloco);
+		Cliente cliente = new Cliente(clienteDto.getName(), clienteDto.getDataGarantia(), empreendimento, unidades, bloco);
 		
 		Cliente save = clienteRepository.save(cliente);
 		URI path = uriBuilder.path("/clientes/{id}").buildAndExpand(save.getId()).toUri();

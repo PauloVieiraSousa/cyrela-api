@@ -1,5 +1,7 @@
 package com.cyrela.model;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,29 +34,28 @@ public class Cliente {
 	@Column(name= "pjo_nome")
 	private String name;
 	
+	@Column(name = "pjo_datagarantia")
+	private Instant dateWarranty;
+	
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pjo_empreendimentoid", nullable = false)
 	private Empreendimento empreendimento;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pjo_unidadeid", nullable = false)
 	private Unidades unidades;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pjo_blocoid", nullable = false)
 	private Bloco blocos;
 	
-
-
-	
-	public Cliente(String name, Empreendimento empreendimento, Unidades unidade, Bloco bloco) {
+	public Cliente (String name, Instant dateWarranty, Empreendimento empreendimento, Unidades unidades, Bloco blocos) {
 		this.name = name;
+		this.dateWarranty = dateWarranty;
 		this.empreendimento = empreendimento;
-		this.unidades = unidade;
-		this.blocos = bloco;
+		this.unidades = unidades;
+		this.blocos = blocos;
 	}
-	
-	
 
 }

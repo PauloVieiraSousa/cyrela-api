@@ -6,12 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@Getter
-@Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "item")
 public class Item {
 	
@@ -24,7 +30,6 @@ public class Item {
 	private String description;
 
 	
-	public Item() {}
 
 	public Item(String description) {
 		this.description = description;
