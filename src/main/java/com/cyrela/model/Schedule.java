@@ -1,5 +1,6 @@
 package com.cyrela.model;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -19,12 +20,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "agenda")
-public class Schedule {
+public class Schedule implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
