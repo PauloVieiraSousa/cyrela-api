@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Padme Abdala 2\",\n    \"empreendimentoId\": 1,\n    \"unidadeId\": 2,\n    \"blocoId\": 1\n}",
+					"raw": "{\n    \"name\": \"Padme Abdala 2\",\n    \"empreendimentoId\": 1,\n    \"unidadeId\": 2,\n    \"blocoId\": 1,\n    \"dataGarantia\": \"2023-01-24T10:12:35Z\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,6 +67,81 @@
 						"api",
 						"clientes",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de datas agendadas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/dates-scheduled",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dates-scheduled"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agendar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\": \"Exemplo de Agenda\",\n    \"clienteId\": 1,\n    \"dateInitial\": \"2021-01-23T10:12:35Z\",\n    \"dateFinal\": \"2021-01-24T10:12:35Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/schedule",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar uma Ocorrencia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bandeira\": \"exemplo de bandeira\",\n    \"ambiente\": \"exemplo de ambiente\",\n    \"description\": \"descricao do ocorrido\",\n    \"clienteId\": 9,\n    \"itemId\": 1,\n    \"subitemId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/occurrence",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"occurrence"
 					]
 				}
 			},
