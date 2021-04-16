@@ -17,12 +17,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SchedulerOutputDto {
 
-	private Instant dateInitial;
+	private String dateInitial;
 	
-	private Instant dateFinal;
+	private String dateFinal;
 	
 	public SchedulerOutputDto(Schedule schedule){
-		this(schedule.getDateInitial(), schedule.getDateFinal());
+		this(schedule.getDateInitial().toString(), schedule.getDateFinal().toString());
 	}
 	
 }

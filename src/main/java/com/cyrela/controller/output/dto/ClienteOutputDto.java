@@ -18,9 +18,9 @@ public class ClienteOutputDto {
 	private Long empreendimentoId;
 	private Long unidadeId;
 	private Long blocoId;
-	private Instant dataGarantia;
+	private String dataGarantia;
 	
 	public ClienteOutputDto (Cliente cliente){
-		this(cliente.getId(), cliente.getName(), cliente.getEmpreendimento().getId(),  cliente.getUnidades().getId(), cliente.getUnidades().getId(), cliente.getDateWarranty());
+		this(cliente.getId(), cliente.getName(), cliente.getEmpreendimento().getId(),  cliente.getUnidades().getId(), cliente.getUnidades().getId(), cliente.getDateWarranty().toString());
 	}
 }
