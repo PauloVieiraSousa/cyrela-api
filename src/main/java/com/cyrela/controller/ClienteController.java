@@ -2,6 +2,7 @@ package com.cyrela.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -47,10 +48,10 @@ public class ClienteController {
 	
 	@ApiOperation(value = "Obtem lista de clientes cadastrados")
 	@GetMapping(path = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Cliente>> getClientes() {
-		List<Cliente> clientes = clienteRepository.findAll();
+	public ResponseEntity<List<ClienteOutputDto>> getClientes() {
+		List<Cliente> list = clienteRepository.findAll();
 		
-		return ResponseEntity.ok(clientes);
+		return ResponseEntity.ok(list.stream().map(ClienteOutputDto::new).collect(Collectors.toList()));
 	}
 	
 	@ApiOperation(value = "Obtem os detalhes do cliente")
