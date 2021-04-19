@@ -6,6 +6,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +44,7 @@ public class ScheduleController {
 	
 	@ApiOperation(value = "Adiciona uma nova agenda")
 	@PostMapping(path = "/schedule", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity dateSchedule(@RequestBody ScheduleInputDto scheduleInputDto, UriComponentsBuilder uriBuilder){
+	public ResponseEntity dateSchedule(@Valid @RequestBody ScheduleInputDto scheduleInputDto, UriComponentsBuilder uriBuilder){
 		Cliente cliente = clienteRespoitory.getOne(scheduleInputDto.getClienteId());
 		Schedule schedule = new Schedule(scheduleInputDto.getSubject(), scheduleInputDto.getDateInitial(), scheduleInputDto.getDateFinal(),cliente);
 		Schedule save = scheduleRepository.save(schedule);

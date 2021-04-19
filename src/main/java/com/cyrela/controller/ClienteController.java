@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +65,7 @@ public class ClienteController {
 	
 	@ApiOperation(value = "Adiciona novo cliente")
 	@PostMapping(path = "/clientes", produces =  MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClienteOutputDto> addCliente(@RequestBody ClienteInputDto clienteDto, UriComponentsBuilder uriBuilder){
+	public ResponseEntity<ClienteOutputDto> addCliente(@Valid @RequestBody ClienteInputDto clienteDto, UriComponentsBuilder uriBuilder){
 		
 		Empreendimento empreendimento = empreendimentoRepository.getOne(clienteDto.getEmpreendimentoId());
 		Bloco bloco = blocoRepository.getOne(clienteDto.getBlocoId());

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.cyrela.model.Cliente;
 
@@ -21,9 +23,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ScheduleInputDto {
 	
+	@NotEmpty(message = "Campo subject obrigatório")
 	private String subject;
+	
+	@NotNull(message = "Campo clienteId obrigatório")
 	private Long clienteId;
+	
+	@NotNull(message = "Campo dateInitial obrigatório")
 	private Instant dateInitial;
+	
+	@NotNull(message = "Campo dateFinal obrigatório")
 	private Instant dateFinal;
 	
 	

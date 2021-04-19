@@ -1,11 +1,12 @@
 package com.cyrela.controller;
 
-import java.lang.reflect.InaccessibleObjectException;
+
 import java.net.URI;
 import java.time.Instant;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -63,7 +64,7 @@ public class OccurenceController {
 	
 	@ApiOperation(value = "Adiciona uma nova ocorrencia")
 	@PostMapping(path = "/occurrence", produces =  MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity createOccurence(@RequestBody OcorrenciaInputDto ocorrenciaInputDto, UriComponentsBuilder uriBuilder){
+	public ResponseEntity createOccurence(@Valid @RequestBody OcorrenciaInputDto ocorrenciaInputDto, UriComponentsBuilder uriBuilder){
 		Cliente cliente = clienteRepository.getOne(ocorrenciaInputDto.getClienteId());
 		
 		if (cliente.getDateWarranty().isBefore(ocorrenciaInputDto.getCreationTime())) {
